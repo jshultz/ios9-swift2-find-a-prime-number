@@ -16,9 +16,7 @@ class ViewController: UIViewController {
     
     @IBAction func btnSubmit(sender: AnyObject) {
         
-        if (txtInput.text != nil) {
-            
-            let number:Int = Int(txtInput.text!)!
+        if let number:Int = Int(txtInput.text!) {
             
             if isPrime(number) {
                 lblResult.text = "\(number) a prime number"
@@ -26,6 +24,10 @@ class ViewController: UIViewController {
                 lblResult.text = "\(number) not a prime number"
             }
             
+            txtInput.text = ""
+            
+        } else {
+            lblResult.text = "Please input something"
         }
         
     }
